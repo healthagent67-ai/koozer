@@ -185,13 +185,13 @@ ul { margin: 0; padding: 0; list-style: none; }
     linear-gradient(90deg, rgba(14,31,27,.92) 0%, rgba(14,31,27,.78) 36%, rgba(14,31,27,.28) 68%, rgba(14,31,27,.05) 100%),
     linear-gradient(0deg, rgba(14,31,27,.45) 0%, rgba(14,31,27,0) 40%);
 }
-.hero__content { padding-block: 96px; max-width: 700px; }
+.hero__content { padding-block: 96px; max-width: 720px; }
 .hero__title {
   margin-top: 20px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.5rem, 5.6vw, 4.75rem);
-  line-height: 1.05;
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
+  line-height: 1.08;
   letter-spacing: -0.015em;
   text-wrap: balance;
 }
