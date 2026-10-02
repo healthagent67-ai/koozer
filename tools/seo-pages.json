@@ -19,7 +19,48 @@
         "addressCountry": "US"
       },
       "mapUrl": "https://maps.app.goo.gl/totrEJ9tfgvL7mn5A",
-      "areaServed": ["Charleston, SC", "Mount Pleasant, SC"],
+      "areaServed": [
+        {
+          "name": "Charleston, SC",
+          "type": "City"
+        },
+        {
+          "name": "Mount Pleasant, SC",
+          "type": "City"
+        },
+        {
+          "name": "Sullivan's Island, SC",
+          "type": "City"
+        },
+        {
+          "name": "Isle of Palms, SC",
+          "type": "City"
+        },
+        {
+          "name": "Summerville, SC",
+          "type": "City"
+        },
+        {
+          "name": "West Ashley, Charleston, SC",
+          "type": "Place"
+        },
+        {
+          "name": "Johns Island, SC",
+          "type": "Place"
+        },
+        {
+          "name": "James Island, SC",
+          "type": "Place"
+        },
+        {
+          "name": "Daniel Island, SC",
+          "type": "Place"
+        },
+        {
+          "name": "Nexton, Summerville, SC",
+          "type": "Place"
+        }
+      ],
       "sameAs": [
         "https://www.facebook.com/KoozerPainting/",
         "https://www.bbb.org/us/sc/mount-pleasant/profile/painting-contractors/koozer-painting-0663-34015655"
@@ -28,83 +69,167 @@
       "logoWidth": 224,
       "logoHeight": 116,
       "services": [
-        { "name": "Interior Painting", "path": "/interior-painting.html", "description": "Interior painting in Charleston, SC, from a single bedroom to the full interior of a home." },
-        { "name": "Exterior Painting", "path": "/exterior-painting.html", "description": "Exterior painting and historic restoration in Charleston and Mount Pleasant, SC." },
-        { "name": "Commercial Painting", "path": "/commercial-painting.html", "description": "Commercial painting for restaurants, hotels and businesses in Charleston, SC." },
-        { "name": "Specialty Services", "path": "/specialty-services.html", "description": "Wood staining, kitchen cabinetry, custom striping, pressure washing, epoxy coatings, drywall repair and roof painting." }
+        {
+          "name": "Interior Painting",
+          "path": "/interior-painting.html",
+          "description": "Interior painting in Charleston, SC, from a single bedroom to the full interior of a home."
+        },
+        {
+          "name": "Exterior Painting",
+          "path": "/exterior-painting.html",
+          "description": "Exterior painting and historic restoration in Charleston and Mount Pleasant, SC."
+        },
+        {
+          "name": "Commercial Painting",
+          "path": "/commercial-painting.html",
+          "description": "Commercial painting for restaurants, hotels and businesses in Charleston, SC."
+        },
+        {
+          "name": "Specialty Services",
+          "path": "/specialty-services.html",
+          "description": "Wood staining, kitchen cabinetry, custom striping, pressure washing, epoxy coatings, drywall repair and roof painting."
+        }
       ]
     }
   },
   "pages": [
     {
-      "file": "index.html", "path": "/", "type": "home",
+      "file": "index.html",
+      "path": "/",
+      "type": "home",
       "title": "Charleston, SC Painting Contractors | Koozer Painting",
       "description": "Koozer Painting: trusted Charleston, SC painting contractors since 1996. Interior, exterior, commercial and historic restoration painting. Free estimates.",
-      "og": "og-home.jpg", "ogAlt": "Koozer Painting, trusted Charleston painting contractors since 1996"
+      "og": "og-home.jpg",
+      "ogAlt": "Koozer Painting, trusted Charleston painting contractors since 1996"
     },
     {
-      "file": "interior-painting.html", "path": "/interior-painting.html", "type": "service",
+      "file": "interior-painting.html",
+      "path": "/interior-painting.html",
+      "type": "service",
       "title": "Interior Painting in Charleston, SC | Koozer Painting",
       "description": "Interior painting in Charleston, SC, from a single bedroom to a whole home. Careful prep, protection and the highest quality paints and primers. Free estimates.",
-      "og": "og-interior.jpg", "ogAlt": "Interior painting in Charleston, SC by Koozer Painting",
+      "og": "og-interior.jpg",
+      "ogAlt": "Interior painting in Charleston, SC by Koozer Painting",
       "breadcrumb": "Interior Painting",
-      "service": { "name": "Interior Painting", "serviceType": "Interior painting", "description": "Interior painting for homes in Charleston, Mount Pleasant and the greater Charleston area, from a single bedroom to the full interior of a home. Proper preparation and protection come first, followed by the highest quality paints and primers." }
+      "service": {
+        "name": "Interior Painting",
+        "serviceType": "Interior painting",
+        "description": "Interior painting for homes in Charleston, Mount Pleasant and the greater Charleston area, from a single bedroom to the full interior of a home. Proper preparation and protection come first, followed by the highest quality paints and primers."
+      }
     },
     {
-      "file": "exterior-painting.html", "path": "/exterior-painting.html", "type": "service",
+      "file": "exterior-painting.html",
+      "path": "/exterior-painting.html",
+      "type": "service",
       "title": "Exterior Painting in Charleston, SC | Koozer Painting",
       "description": "Exterior house painting in Charleston and Mount Pleasant, SC. From historic restoration to remodels, with premium exterior paints built to last. Free estimates.",
-      "og": "og-exterior.jpg", "ogAlt": "Exterior painting in Charleston, SC by Koozer Painting",
+      "og": "og-exterior.jpg",
+      "ogAlt": "Exterior painting in Charleston, SC by Koozer Painting",
       "breadcrumb": "Exterior Painting",
-      "service": { "name": "Exterior Painting", "serviceType": "Exterior painting", "description": "Exterior painting projects of every kind, from historic restoration in Charleston to remodels in Mount Pleasant, using only the highest quality exterior paints." }
+      "service": {
+        "name": "Exterior Painting",
+        "serviceType": "Exterior painting",
+        "description": "Exterior painting projects of every kind, from historic restoration in Charleston to remodels in Mount Pleasant, using only the highest quality exterior paints."
+      }
     },
     {
-      "file": "commercial-painting.html", "path": "/commercial-painting.html", "type": "service",
+      "file": "commercial-painting.html",
+      "path": "/commercial-painting.html",
+      "type": "service",
       "title": "Commercial Painting in Charleston, SC | Koozer Painting",
       "description": "Commercial painting contractors in Charleston, SC for restaurants, hotels and businesses. Done on time and done right. Request a free estimate.",
-      "og": "og-commercial.jpg", "ogAlt": "Commercial painting in Charleston, SC by Koozer Painting",
+      "og": "og-commercial.jpg",
+      "ogAlt": "Commercial painting in Charleston, SC by Koozer Painting",
       "breadcrumb": "Commercial Painting",
-      "service": { "name": "Commercial Painting", "serviceType": "Commercial painting", "description": "Commercial painting jobs of all types, including restaurants and hotel exteriors, completed in a timely manner and done correctly." }
+      "service": {
+        "name": "Commercial Painting",
+        "serviceType": "Commercial painting",
+        "description": "Commercial painting jobs of all types, including restaurants and hotel exteriors, completed in a timely manner and done correctly."
+      }
     },
     {
-      "file": "specialty-services.html", "path": "/specialty-services.html", "type": "service",
+      "file": "specialty-services.html",
+      "path": "/specialty-services.html",
+      "type": "service",
       "title": "Specialty Painting Services in Charleston, SC | Koozer Painting",
       "description": "Wood staining, kitchen cabinet painting, custom striping, pressure washing, epoxy coatings, drywall repair and roof painting in Charleston, SC. Free estimates.",
-      "og": "og-specialty.jpg", "ogAlt": "Specialty painting services in Charleston, SC by Koozer Painting",
+      "og": "og-specialty.jpg",
+      "ogAlt": "Specialty painting services in Charleston, SC by Koozer Painting",
       "breadcrumb": "Specialty Services",
-      "service": { "name": "Specialty Painting Services", "serviceType": "Specialty painting", "description": "Wood staining, kitchen cabinetry, custom striping, pressure washing, epoxy coatings, drywall repair, roof painting and other challenging projects.",
-        "offers": ["Wood staining", "Kitchen cabinetry painting", "Custom striping", "Pressure washing", "Epoxy coatings", "Drywall repair", "Roof painting"] }
+      "service": {
+        "name": "Specialty Painting Services",
+        "serviceType": "Specialty painting",
+        "description": "Wood staining, kitchen cabinetry, custom striping, pressure washing, epoxy coatings, drywall repair, roof painting and other challenging projects.",
+        "offers": [
+          "Wood staining",
+          "Kitchen cabinetry painting",
+          "Custom striping",
+          "Pressure washing",
+          "Epoxy coatings",
+          "Drywall repair",
+          "Roof painting"
+        ]
+      }
     },
     {
-      "file": "projects.html", "path": "/projects.html", "type": "collection",
+      "file": "projects.html",
+      "path": "/projects.html",
+      "type": "collection",
       "title": "Painting Projects in Charleston, SC | Koozer Painting",
       "description": "See recent Charleston, SC painting projects by Koozer Painting: historic churches and landmarks, downtown storefronts, homes and commercial spaces.",
-      "og": "og-projects.jpg", "ogAlt": "Recent painting projects in Charleston, SC by Koozer Painting",
+      "og": "og-projects.jpg",
+      "ogAlt": "Recent painting projects in Charleston, SC by Koozer Painting",
       "breadcrumb": "Projects"
     },
     {
-      "file": "contact-us.html", "path": "/contact-us.html", "type": "contact",
+      "file": "contact-us.html",
+      "path": "/contact-us.html",
+      "type": "contact",
       "title": "Contact Koozer Painting | Charleston, SC Painters",
       "description": "Contact Koozer Painting in Mount Pleasant, SC. Call 843-881-2212 or send a message to request a free painting estimate anywhere in the Charleston area.",
-      "og": "og-contact.jpg", "ogAlt": "Contact Koozer Painting in Charleston, SC",
+      "og": "og-contact.jpg",
+      "ogAlt": "Contact Koozer Painting in Charleston, SC",
       "breadcrumb": "Contact Us"
     },
     {
-      "file": "free-estimate.html", "path": "/free-estimate.html", "type": "page",
+      "file": "free-estimate.html",
+      "path": "/free-estimate.html",
+      "type": "page",
       "title": "Free Painting Estimate in Charleston, SC | Koozer Painting",
       "description": "Request a free painting estimate from Koozer Painting. Interior, exterior, commercial and historic restoration painting across the Charleston, SC area.",
-      "og": "og-estimate.jpg", "ogAlt": "Request a free painting estimate from Koozer Painting in Charleston, SC",
+      "og": "og-estimate.jpg",
+      "ogAlt": "Request a free painting estimate from Koozer Painting in Charleston, SC",
       "breadcrumb": "Free Estimate"
     },
     {
-      "file": "about-us.html", "path": "/about-us.html", "type": "about",
+      "file": "about-us.html",
+      "path": "/about-us.html",
+      "type": "about",
       "title": "About Koozer Painting | Charleston, SC Painting Contractors",
       "description": "Meet Kevin and Nick Koozer, a third-generation painting family serving Charleston, SC since 1996 with 50 years of combined experience in downtown Charleston.",
-      "og": "og-about.jpg", "ogAlt": "Kevin and Nick Koozer of Koozer Painting, Charleston, SC",
+      "og": "og-about.jpg",
+      "ogAlt": "Kevin and Nick Koozer of Koozer Painting, Charleston, SC",
       "breadcrumb": "About Us"
     },
-    { "file": "areas-served.html", "type": "noindex", "title": "Areas Served | Koozer Painting" },
-    { "file": "services.html", "type": "noindex", "title": "Services | Koozer Painting" },
-    { "file": "404.html", "type": "noindex", "title": "Page Not Found | Koozer Painting" }
+    {
+      "file": "areas-served.html",
+      "path": "/areas-served.html",
+      "type": "page",
+      "title": "Areas We Serve | Charleston, Mount Pleasant & Summerville SC",
+      "description": "Koozer Painting serves Charleston, Mount Pleasant, Sullivan's Island, Isle of Palms, West Ashley, James and Johns Island, Daniel Island, Summerville and Nexton.",
+      "og": "og-areas.jpg",
+      "ogAlt": "Koozer Painting serves Charleston, Mount Pleasant, Summerville and the surrounding SC area",
+      "breadcrumb": "Areas Served"
+    },
+    {
+      "file": "services.html",
+      "type": "noindex",
+      "title": "Services | Koozer Painting"
+    },
+    {
+      "file": "404.html",
+      "type": "noindex",
+      "title": "Page Not Found | Koozer Painting"
+    }
   ]
 }

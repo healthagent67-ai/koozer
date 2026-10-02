@@ -550,6 +550,36 @@ select.input {
 .person__contact a { color: var(--green); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
 .person__contact a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
+/* ---------- Areas served ---------- */
+
+.area-chips { margin: 30px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+.area-chips a {
+  display: inline-block; padding: 9px 18px; border: 1px solid rgba(255,255,255,.4); border-radius: 999px;
+  color: #fff; font-weight: 600; font-size: .9375rem; text-decoration: none;
+  transition: background-color .2s, border-color .2s, color .2s;
+}
+.area-chips a:hover { background: #fff; border-color: #fff; color: var(--green); }
+.area-chips--light a { border-color: var(--green); color: var(--green); }
+.area-chips--light a:hover { background: var(--green); border-color: var(--green); color: #fff; }
+
+.areas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.area-card { --chip: var(--haint); background: #fff; border-top: 6px solid var(--chip); padding: clamp(24px, 3vw, 36px); box-shadow: 0 1px 0 rgba(23,33,30,.06), 0 12px 26px -18px rgba(18,35,31,.3); display: flex; flex-direction: column; }
+.area-card:nth-child(4n+2) { --chip: var(--blush); }
+.area-card:nth-child(4n+3) { --chip: var(--green); }
+.area-card:nth-child(4n+4) { --chip: var(--brass); }
+.area-card__name { font-family: var(--font-display); font-weight: 700; font-size: 1.625rem; line-height: 1.2; color: var(--green); }
+.area-card__tag { margin-top: 4px; font-size: .75rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.area-card p { margin-top: 14px; color: var(--muted); }
+.area-card .link-arrow { margin-top: auto; align-self: flex-start; }
+.area-card p:not(.area-card__tag) { margin-bottom: 22px; }
+
+.area-services { margin-top: clamp(40px, 5vw, 64px); padding: clamp(24px, 3vw, 36px); background: var(--green); color: rgba(255,255,255,.88); }
+.area-services h3 { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.25; color: #fff; }
+.area-services p { margin-top: 10px; max-width: 46em; }
+.area-services a { color: #fff; text-underline-offset: 4px; }
+.area-services a:hover { color: var(--haint); }
+.area-services :focus-visible { outline-color: var(--haint); }
+
 /* ---------- Blank interior pages ---------- */
 
 .blank-page { min-height: 55vh; }
@@ -643,6 +673,7 @@ select.input {
 @media (max-width: 920px) {
   .contact { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; }
+  .areas { grid-template-columns: 1fr; }
   .about__photo { margin-right: 18px; }
   .facts { grid-template-columns: 1fr; gap: 28px; }
   .people { grid-template-columns: 1fr; }

@@ -24,7 +24,7 @@ const BIZ_ID = BASE + '/#business';
 const SITE_ID = BASE + '/#website';
 const OG_W = 1200, OG_H = 630;
 
-const areaServed = B.areaServed.map((n) => ({ '@type': 'City', name: n }));
+const areaServed = B.areaServed.map((a) => (typeof a === 'string' ? { '@type': 'City', name: a } : { '@type': a.type || 'City', name: a.name }));
 
 function businessNode() {
   return {

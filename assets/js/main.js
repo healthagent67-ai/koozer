@@ -66,6 +66,11 @@
      with the request pre-filled, so nothing is silently lost. */
   var form = document.querySelector('[data-estimate-form]');
   if (form) {
+    // Links from the Areas Served page pass ?area=Mount%20Pleasant to pre-fill the location
+    var areaParam = new URLSearchParams(window.location.search).get('area');
+    if (areaParam && form.elements.location && !form.elements.location.value) {
+      form.elements.location.value = areaParam.slice(0, 80);
+    }
     var status = form.querySelector('.form-status');
     var submitBtn = form.querySelector('button[type="submit"]');
     var say = function (msg, isError) {

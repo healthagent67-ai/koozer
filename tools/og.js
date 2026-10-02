@@ -14,6 +14,7 @@ const CARDS = [
   ['specialty', 'assets/img/specialty/hero-cabinets.jpg', 60, ['Specialty Painting', 'Services in Charleston, SC'], 'Staining · Cabinetry · Epoxy · Striping and more'],
   ['projects', 'assets/img/projects/historic-pink-church-full.jpg', 50, ['Recent Painting Projects', 'in Charleston, SC'], 'Koozer Painting since 1996'],
   ['about', 'assets/img/about/kevin-and-nick-koozer.jpg', 50, ['About Koozer Painting', 'A third-generation painting family'], 'Charleston, SC since 1996', 'bottom'],
+  ['areas', 'assets/img/projects/exterior-turret-house-full.jpg', 50, ['Areas We Serve', 'Charleston, Mount Pleasant, Summerville & more'], 'Painting contractors across the greater Charleston, SC area'],
   ['contact', 'assets/img/hero.jpg', 70, ['Contact Koozer Painting', 'Charleston, SC'], 'Call 843-881-2212'],
   ['estimate', 'assets/img/hero.jpg', 70, ['Free Painting Estimate', 'in Charleston, SC'], 'Call 843-881-2212 or request online'],
 ];
