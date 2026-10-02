@@ -60,7 +60,7 @@ function graphFor(p) {
   const url = abs(p.path);
   const og = abs('assets/img/og/' + p.og);
   const graph = [businessNode()];
-  const pageType = { home: 'WebPage', service: 'WebPage', collection: 'CollectionPage', contact: 'ContactPage', page: 'WebPage' }[p.type] || 'WebPage';
+  const pageType = { home: 'WebPage', service: 'WebPage', collection: 'CollectionPage', contact: 'ContactPage', about: 'AboutPage', page: 'WebPage' }[p.type] || 'WebPage';
 
   if (p.type === 'home') {
     graph.push({ '@type': 'WebSite', '@id': SITE_ID, url: BASE + '/', name: SITE.name, inLanguage: 'en-US', publisher: { '@id': BIZ_ID } });
@@ -97,6 +97,12 @@ function graphFor(p) {
     }
     graph.push(node);
     page.mainEntity = { '@id': url + '#service' };
+  }
+
+  if (p.type === 'about') {
+    graph.push({ '@type': 'Person', '@id': BASE + '/#kevin-koozer', name: B.founder, jobTitle: 'Founder', worksFor: { '@id': BIZ_ID }, telephone: '+1-843-568-4021', email: 'kevin@koozerpainting.com' });
+    graph.push({ '@type': 'Person', '@id': BASE + '/#nick-koozer', name: 'Nick Koozer', worksFor: { '@id': BIZ_ID }, telephone: '+1-843-864-7146', email: 'nick@koozerpainting.com' });
+    page.mainEntity = { '@id': BIZ_ID };
   }
 
   graph.push(page);

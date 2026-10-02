@@ -13,21 +13,32 @@ const CARDS = [
   ['commercial', 'assets/img/commercial/hero-taproom.jpg', 60, ['Commercial Painting', 'in Charleston, SC'], 'Free estimates · 843-881-2212'],
   ['specialty', 'assets/img/specialty/hero-cabinets.jpg', 60, ['Specialty Painting', 'Services in Charleston, SC'], 'Staining · Cabinetry · Epoxy · Striping and more'],
   ['projects', 'assets/img/projects/historic-pink-church-full.jpg', 50, ['Recent Painting Projects', 'in Charleston, SC'], 'Koozer Painting since 1996'],
+  ['about', 'assets/img/about/kevin-and-nick-koozer.jpg', 50, ['About Koozer Painting', 'A third-generation painting family'], 'Charleston, SC since 1996', 'bottom'],
   ['contact', 'assets/img/hero.jpg', 70, ['Contact Koozer Painting', 'Charleston, SC'], 'Call 843-881-2212'],
   ['estimate', 'assets/img/hero.jpg', 70, ['Free Painting Estimate', 'in Charleston, SC'], 'Call 843-881-2212 or request online'],
 ];
 
 (async () => {
-  for (const [name, src, fx, lines, sub] of CARDS) {
+  for (const [name, src, fx, lines, sub, style] of CARDS) {
     const meta = await sharp(R + src).metadata();
     // cover-crop to 1200x630 keeping the focal x position
     const scale = Math.max(1200 / meta.width, 630 / meta.height);
     const w = Math.round(meta.width * scale), h = Math.round(meta.height * scale);
     const left = Math.max(0, Math.min(w - 1200, Math.round((w - 1200) * fx / 100)));
-    const base = await sharp(R + src).resize(w, h).extract({ left, top: Math.round((h - 630) / 2), width: 1200, height: 630 }).toBuffer();
+    const base = await sharp(R + src).resize(w, h).extract({ left, top: style === 'bottom' ? 0 : Math.round((h - 630) / 2), width: 1200, height: 630 }).toBuffer();
     const tspans = lines.map((l, i) => `<tspan x="70" dy="${i === 0 ? 0 : 66}">${esc(l)}</tspan>`).join('');
     const top = 250 - (lines.length - 2) * 30;
-    const svg = Buffer.from(`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+    // "bottom" style keeps faces clear: text sits on a dark band along the bottom edge
+    const svg = style === 'bottom' ? Buffer.from(`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="b" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#12231f" stop-opacity="0"/><stop offset=".55" stop-color="#12231f" stop-opacity=".88"/><stop offset="1" stop-color="#12231f" stop-opacity=".96"/>
+  </linearGradient></defs>
+  <rect y="330" width="1200" height="300" fill="url(#b)"/>
+  <rect x="70" y="470" width="64" height="5" fill="#c7a052"/>
+  <text x="70" y="528" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="50" fill="#ffffff">${esc(lines[0])}</text>
+  <text x="70" y="580" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#a8cdd3">${esc(lines[1])}</text>
+  <text x="1130" y="580" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="22" letter-spacing="3" fill="#c7a052">KOOZER PAINTING</text>
+</svg>`) : Buffer.from(`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#12231f" stop-opacity=".94"/><stop offset=".55" stop-color="#12231f" stop-opacity=".78"/><stop offset="1" stop-color="#12231f" stop-opacity=".12"/>
   </linearGradient></defs>

@@ -96,7 +96,13 @@
       "og": "og-estimate.jpg", "ogAlt": "Request a free painting estimate from Koozer Painting in Charleston, SC",
       "breadcrumb": "Free Estimate"
     },
-    { "file": "about-us.html", "type": "noindex", "title": "About Us | Koozer Painting" },
+    {
+      "file": "about-us.html", "path": "/about-us.html", "type": "about",
+      "title": "About Koozer Painting | Charleston, SC Painting Contractors",
+      "description": "Meet Kevin and Nick Koozer, a third-generation painting family serving Charleston, SC since 1996 with 50 years of combined experience in downtown Charleston.",
+      "og": "og-about.jpg", "ogAlt": "Kevin and Nick Koozer of Koozer Painting, Charleston, SC",
+      "breadcrumb": "About Us"
+    },
     { "file": "areas-served.html", "type": "noindex", "title": "Areas Served | Koozer Painting" },
     { "file": "services.html", "type": "noindex", "title": "Services | Koozer Painting" },
     { "file": "404.html", "type": "noindex", "title": "Page Not Found | Koozer Painting" }
