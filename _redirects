@@ -1,0 +1,15 @@
+# 301 redirects from the old koozerpainting.com (.php) URLs to the new pages.
+# This format works as-is on Netlify and Cloudflare Pages. On Apache, convert
+# each line to a "Redirect 301 /old /new" rule in .htaccess. GitHub Pages
+# ignores this file (it cannot do server redirects).
+#
+# Keeping these in place when the new site goes live preserves the search
+# rankings and backlinks the old pages have earned.
+
+/index.php                 /                           301
+/painting-services.php     /#services                  301
+/interior-painting.php     /interior-painting.html     301
+/exterior-painting.php     /exterior-painting.html     301
+/commercial-painting.php   /commercial-painting.html   301
+/specialty-services.php    /specialty-services.html    301
+/contact-us.php            /contact-us.html            301

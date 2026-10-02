@@ -3,9 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SEO:START -->
   <title>Areas Served | Koozer Painting</title>
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#1b342d">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- SEO:END -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,8 +37,8 @@
           <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
           <li class="nav__item"><a class="nav__link" href="about-us.html">About Us</a></li>
           <li class="nav__item nav__item--has-sub">
-            <a class="nav__link" href="services.html">Services</a>
-            <ul class="nav__sub">
+            <button class="nav__link nav__link--btn" type="button" aria-expanded="false" aria-controls="nav-services">Services</button>
+            <ul class="nav__sub" id="nav-services">
               <li><a href="interior-painting.html">Interior Painting</a></li>
               <li><a href="exterior-painting.html">Exterior Painting</a></li>
               <li><a href="commercial-painting.html">Commercial Painting</a></li>

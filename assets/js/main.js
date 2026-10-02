@@ -18,6 +18,31 @@
     window.matchMedia('(min-width: 921px)').addEventListener('change', function () { setNav(false); });
   }
 
+  /* ---------- "Services" dropdown (label only, no page of its own) ---------- */
+  var subItem = document.querySelector('.nav__item--has-sub');
+  if (subItem) {
+    var subBtn = subItem.querySelector('.nav__link--btn');
+    var setSub = function (open) {
+      subItem.classList.toggle('nav__item--open', open);
+      subBtn.setAttribute('aria-expanded', String(open));
+    };
+    subBtn.addEventListener('click', function () {
+      setSub(subBtn.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('click', function (e) {
+      if (!subItem.contains(e.target)) setSub(false);
+    });
+    subItem.addEventListener('focusout', function (e) {
+      if (e.relatedTarget && !subItem.contains(e.relatedTarget)) setSub(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && subBtn.getAttribute('aria-expanded') === 'true') {
+        setSub(false);
+        if (subItem.contains(document.activeElement)) subBtn.focus();
+      }
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {

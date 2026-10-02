@@ -135,8 +135,21 @@ ul { margin: 0; padding: 0; list-style: none; }
   content: ""; position: absolute; left: 14px; right: 14px; bottom: 6px; height: 2px;
   background: var(--brass); transform: scaleX(0); transform-origin: left; transition: transform .25s;
 }
-.nav__link:hover::after, .nav__link[aria-current="page"]::after { transform: scaleX(1); }
-.nav__link[aria-current="page"] { color: var(--green); }
+.nav__link:hover::after, .nav__link[aria-current="page"]::after, .nav__link.is-current::after { transform: scaleX(1); }
+.nav__link[aria-current="page"], .nav__link.is-current { color: var(--green); }
+
+/* "Services" is a label that opens its dropdown; it has no page of its own */
+.nav__link--btn {
+  display: flex; align-items: center; gap: 8px;
+  background: none; border: 0; margin: 0; cursor: pointer;
+  font-family: inherit; line-height: inherit; text-align: left;
+}
+.nav__link--btn::before {
+  content: ""; order: 2; width: 7px; height: 7px; margin-top: -3px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); transition: transform .2s;
+}
+.nav__link--btn[aria-expanded="true"]::before { transform: rotate(225deg); margin-top: 3px; }
 
 .nav__sub {
   position: absolute; left: 0; top: 100%;
@@ -147,7 +160,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: opacity .18s, transform .18s, visibility .18s;
 }
 .nav__item--has-sub:hover .nav__sub,
-.nav__item--has-sub:focus-within .nav__sub { opacity: 1; visibility: visible; transform: none; }
+.nav__item--open .nav__sub { opacity: 1; visibility: visible; transform: none; }
+.nav__sub a[aria-current="page"] { color: var(--green); background: var(--haint-tint); }
 .nav__sub a {
   display: block; padding: 10px 20px;
   font-size: 0.96875rem; font-weight: 600; text-decoration: none; color: var(--ink);
@@ -336,6 +350,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-family: var(--font-display); font-weight: 700;
   font-size: clamp(2.5rem, 5.4vw, 4.25rem); line-height: 1.05; letter-spacing: -0.015em;
 }
+.page-hero__title em { display: block; font-style: italic; font-weight: 400; color: var(--haint); }
+.section-head p a { color: var(--green); text-underline-offset: 3px; }
+.section-head p a:hover { color: var(--brass-dark); }
 .page-hero__lede { margin-top: 24px; max-width: 46em; font-size: 1.1875rem; line-height: 1.65; color: rgba(255,255,255,.88); }
 .page-hero__lede a { color: #fff; text-underline-offset: 4px; }
 .page-hero__lede a:hover { color: var(--haint); }
@@ -560,10 +577,12 @@ select.input {
   .nav__list { flex-direction: column; align-items: stretch; gap: 0; }
   .nav__link { padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 1.0625rem; }
   .nav__link::after { display: none; }
+  .nav__link--btn { width: 100%; justify-content: space-between; }
   .nav__sub {
-    position: static; min-width: 0; padding: 0 0 8px 16px; border: 0; box-shadow: none;
+    position: static; display: none; min-width: 0; padding: 0 0 8px 16px; border: 0; box-shadow: none;
     opacity: 1; visibility: visible; transform: none;
   }
+  .nav__item--open .nav__sub { display: block; }
   .nav__sub a { padding: 12px 0; font-weight: 500; border-bottom: 1px solid var(--line); }
   .nav__mobile-cta { display: grid; gap: 12px; margin-top: 22px; }
   .nav__mobile-cta .btn { width: 100%; }

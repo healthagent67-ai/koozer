@@ -1,0 +1,14 @@
+{
+  "name": "koozer-painting-site",
+  "private": true,
+  "description": "Static website for Koozer Painting, Charleston, SC",
+  "scripts": {
+    "sync": "node tools/sync-chrome.js",
+    "seo": "node tools/seo.js",
+    "og": "node tools/og.js",
+    "build": "node tools/sync-chrome.js && node tools/seo.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.0"
+  }
+}
