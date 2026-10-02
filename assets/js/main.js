@@ -35,11 +35,10 @@
   }
 
   /* ---------- Gallery lightbox ---------- */
-  var grid = document.getElementById('gallery-grid');
   var box = document.getElementById('lightbox');
-  if (!grid || !box) return;
+  var allTiles = Array.prototype.slice.call(document.querySelectorAll('.tile'));
+  if (!box || !allTiles.length) return;
 
-  var allTiles = Array.prototype.slice.call(grid.querySelectorAll('.tile'));
   var tiles = allTiles;
   var boxImg = box.querySelector('.lightbox__img');
   var boxCap = box.querySelector('.lightbox__cap');
