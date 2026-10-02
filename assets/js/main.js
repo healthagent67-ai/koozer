@@ -34,6 +34,66 @@
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  /* ---------- Estimate / contact form ----------
+     Set data-endpoint on the <form> to a form-handling service URL (Formspree,
+     Netlify Forms, Web3Forms, etc.) and submissions are posted there.
+     With no endpoint, the form falls back to opening the visitor's email app
+     with the request pre-filled, so nothing is silently lost. */
+  var form = document.querySelector('[data-estimate-form]');
+  if (form) {
+    var status = form.querySelector('.form-status');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var say = function (msg, isError) {
+      status.textContent = msg;
+      status.hidden = false;
+      status.classList.toggle('form-status--error', !!isError);
+      status.focus();
+    };
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = new FormData(form);
+      if (data.get('website')) { say('Thank you. Your request has been sent.'); form.reset(); return; } // honeypot
+      var endpoint = form.getAttribute('data-endpoint');
+      var phone = form.getAttribute('data-phone') || '843-881-2212';
+
+      if (endpoint) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+        fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+          .then(function (r) {
+            if (!r.ok) throw new Error('bad response');
+            say('Thank you. Your request has been sent, and we will be in touch soon.');
+            form.reset();
+          })
+          .catch(function () {
+            say('Sorry, your request could not be sent. Please call us at ' + phone + ' or email ' + form.getAttribute('data-email') + '.', true);
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send request';
+          });
+        return;
+      }
+
+      var lines = [
+        'Name: ' + data.get('name'),
+        'Phone: ' + data.get('phone'),
+        'Email: ' + data.get('email'),
+        'Project type: ' + data.get('project'),
+        'Property location: ' + (data.get('location') || 'Not provided'),
+        '',
+        data.get('message')
+      ];
+      var mail = 'mailto:' + form.getAttribute('data-email') +
+        '?cc=' + encodeURIComponent(form.getAttribute('data-cc') || '') +
+        '&subject=' + encodeURIComponent('Free estimate request: ' + data.get('project')) +
+        '&body=' + encodeURIComponent(lines.join('\n'));
+      window.location.href = mail;
+      say('Your email app should open with your request ready to send. If it does not, email ' + form.getAttribute('data-email') + ' or call ' + phone + '.');
+    });
+  }
+
   /* ---------- Gallery lightbox ---------- */
   var box = document.getElementById('lightbox');
   var allTiles = Array.prototype.slice.call(document.querySelectorAll('.tile'));
