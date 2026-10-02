@@ -39,17 +39,39 @@
   var box = document.getElementById('lightbox');
   if (!grid || !box) return;
 
-  var tiles = Array.prototype.slice.call(grid.querySelectorAll('.tile'));
+  var allTiles = Array.prototype.slice.call(grid.querySelectorAll('.tile'));
+  var tiles = allTiles;
   var boxImg = box.querySelector('.lightbox__img');
   var boxCap = box.querySelector('.lightbox__cap');
   var current = 0;
   var opener = null;
 
+  /* Optional category filters (projects page) */
+  var filterBar = document.querySelector('.filters');
+  var countEl = document.getElementById('filter-count');
+  if (filterBar) {
+    filterBar.addEventListener('click', function (e) {
+      var btn = e.target.closest('.filter');
+      if (!btn) return;
+      var key = btn.dataset.filter;
+      filterBar.querySelectorAll('.filter').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      var shown = 0;
+      allTiles.forEach(function (t) {
+        var match = key === 'all' || t.dataset.group === key;
+        t.hidden = !match;
+        if (match) shown++;
+      });
+      if (countEl) countEl.textContent = 'Showing ' + shown + ' photo' + (shown === 1 ? '' : 's');
+    });
+  }
+
   function show(i) {
     current = (i + tiles.length) % tiles.length;
     var tile = tiles[current];
     var img = tile.querySelector('img');
-    boxImg.src = img.currentSrc || img.src;
+    boxImg.src = tile.dataset.full || img.currentSrc || img.src;
     boxImg.alt = img.alt;
     boxCap.innerHTML = '';
     var cat = document.createElement('b');
@@ -58,9 +80,10 @@
     boxCap.appendChild(document.createTextNode(tile.dataset.title));
   }
 
-  function open(i) {
+  function open(tile) {
     opener = document.activeElement;
-    show(i);
+    tiles = allTiles.filter(function (t) { return !t.hidden; });
+    show(tiles.indexOf(tile));
     box.hidden = false;
     box.classList.add('is-open');
     document.body.style.overflow = 'hidden';
@@ -74,8 +97,8 @@
     if (opener) opener.focus();
   }
 
-  tiles.forEach(function (tile, i) {
-    tile.addEventListener('click', function () { open(i); });
+  allTiles.forEach(function (tile) {
+    tile.addEventListener('click', function () { open(tile); });
   });
   box.querySelector('.lightbox__close').addEventListener('click', close);
   box.querySelector('.lightbox__prev').addEventListener('click', function () { show(current - 1); });

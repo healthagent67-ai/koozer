@@ -283,6 +283,35 @@ ul { margin: 0; padding: 0; list-style: none; }
 .tile:hover::after, .tile:focus-visible::after { opacity: 1; }
 .tile:hover .tile__cap, .tile:focus-visible .tile__cap { opacity: 1; transform: none; }
 
+.tile[hidden] { display: none; }
+
+/* Projects page: photos keep their natural proportions */
+.gallery--natural { columns: 4; }
+.gallery--natural .tile { aspect-ratio: auto; }
+.gallery--natural .tile img { height: auto; }
+
+.page-hero { background: var(--green); color: #fff; padding-block: clamp(56px, 8vw, 104px); }
+.page-hero__title {
+  margin-top: 14px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.5rem, 5.4vw, 4.25rem); line-height: 1.05; letter-spacing: -0.015em;
+}
+.page-hero__lede { margin-top: 24px; max-width: 46em; font-size: 1.1875rem; line-height: 1.65; color: rgba(255,255,255,.88); }
+.page-hero__lede a { color: #fff; text-underline-offset: 4px; }
+.page-hero__lede a:hover { color: var(--haint); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.filter {
+  padding: 11px 20px;
+  font: 600 .9375rem/1 var(--font-body); letter-spacing: .02em;
+  color: var(--green); background: transparent;
+  border: 1.5px solid var(--green); border-radius: 999px; cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.filter:hover { background: var(--haint-tint); }
+.filter[aria-pressed="true"] { background: var(--green); color: #fff; }
+.filter-count { margin-bottom: 28px; font-size: .9375rem; color: var(--muted); }
+
 /* Lightbox */
 .lightbox {
   position: fixed; inset: 0; z-index: 300;
@@ -290,7 +319,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: rgba(10,22,19,.94); padding: 24px;
 }
 .lightbox.is-open { display: flex; }
-.lightbox__img { width: min(88vw, 640px); height: auto; max-height: 76vh; object-fit: contain; background: #000; }
+.lightbox__img { width: auto; height: auto; max-width: min(88vw, var(--lb-max, 640px)); max-height: 76vh; object-fit: contain; background: #000; }
+.page-projects { --lb-max: 1400px; }
 .lightbox__cap { margin-top: 18px; color: #fff; text-align: center; font-family: var(--font-display); font-size: 1.125rem; }
 .lightbox__cap b { display: block; margin-bottom: 2px; font-family: var(--font-body); font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; color: var(--brass); }
 .lightbox button {
@@ -429,7 +459,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   .intro { grid-template-columns: 1fr; }
   .commitments { grid-template-columns: 1fr; gap: 28px; }
   .proof { grid-template-columns: 1fr; }
-  .gallery { columns: 2; }
+  .gallery, .gallery--natural { columns: 2; }
+}
+
+@media (max-width: 1100px) and (min-width: 921px) {
+  .gallery--natural { columns: 3; }
 }
 
 @media (max-width: 640px) {
