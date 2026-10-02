@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Free Estimate | Koozer Painting</title>
+  <title>Free Painting Estimate in Charleston, SC | Koozer Painting</title>
+  <meta name="description" content="Request a free painting estimate from Koozer Painting. Interior, exterior, commercial and historic restoration painting across the greater Charleston, SC area.">
   <meta name="theme-color" content="#1b342d">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,8 +58,139 @@
   </header>
   <!-- HEADER:END -->
 
-  <main id="main" class="blank-page">
-    <!-- Content for this page will be added later. -->
+  <main id="main">
+    <section class="page-hero page-hero--contact on-dark" aria-labelledby="page-title">
+      <div class="wrap">
+        <p class="eyebrow">Free estimates</p>
+        <h1 class="page-hero__title" id="page-title">Free Estimate</h1>
+        <p class="page-hero__lede">Tell us about your project and we&rsquo;ll follow up with a free estimate. Whether it&rsquo;s a single room or a whole house, a historic restoration or a commercial space, we&rsquo;d be glad to take a look.</p>
+        <div class="page-hero__actions">
+          <a class="btn btn--brass" href="#estimate-form">Start your request</a>
+          <a class="page-hero__call" href="tel:8438812212"><span>Prefer to talk? Call</span><strong>843-881-2212</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--overlap" aria-label="Estimate request form">
+      <div class="wrap">
+        <div class="contact">
+
+          <div class="form-card" id="estimate-form">
+            <h2 class="form-card__title">Request your free estimate</h2>
+            <p class="form-card__intro">The more we know about your project, the more useful our follow-up will be. It only takes a minute.</p>
+
+            <form class="form" data-estimate-form data-endpoint="" data-email="kevin@koozerpainting.com" data-cc="nick@koozerpainting.com" data-phone="843-881-2212" novalidate>
+              <div class="field">
+                <label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="f-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+              </div>
+              <div class="field">
+                <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="f-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="f-project">Type of project <span class="req" aria-hidden="true">*</span></label>
+                <select class="input" id="f-project" name="project" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option>Interior painting</option>
+                  <option>Exterior painting</option>
+                  <option>Commercial painting</option>
+                  <option>Specialty services</option>
+                  <option>Historic restoration</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-property">Property type <span class="opt">(optional)</span></label>
+                <select class="input" id="f-property" name="property">
+                  <option value="" selected>Select one</option>
+                  <option>Single-family home</option>
+                  <option>Historic home or building</option>
+                  <option>Condo or townhome</option>
+                  <option>Commercial property</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-timeline">When would you like to start? <span class="opt">(optional)</span></label>
+                <select class="input" id="f-timeline" name="timeline">
+                  <option value="" selected>Select one</option>
+                  <option>As soon as possible</option>
+                  <option>Within the next month</option>
+                  <option>In 1 to 3 months</option>
+                  <option>Just planning ahead</option>
+                </select>
+              </div>
+              <div class="field field--full">
+                <label for="f-location">Property location <span class="opt">(optional)</span></label>
+                <input class="input" id="f-location" name="location" type="text" autocomplete="address-level2" placeholder="For example, Mount Pleasant">
+              </div>
+              <div class="field field--full">
+                <label for="f-message">Project details <span class="req" aria-hidden="true">*</span></label>
+                <textarea class="input" id="f-message" name="message" required placeholder="Which rooms, surfaces or areas need painting? Anything else we should know, such as a color change or the age of the building?"></textarea>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="f-website">Leave this field empty</label>
+                <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="form__submit">
+                <button class="btn btn--green" type="submit">Send request</button>
+                <p class="form__note">Fields marked <span class="req" style="color:var(--brass-dark)">*</span> are required. We only use your details to respond to your request.</p>
+              </div>
+              <p class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+            </form>
+          </div>
+
+          <aside class="details" aria-label="What happens after you send your request">
+            <h2 class="details__title">What happens next</h2>
+            <ol class="next-steps">
+              <li>
+                <span class="next-steps__n" aria-hidden="true">1</span>
+                <div>
+                  <h3>Send your request</h3>
+                  <p>Tell us about your project using the form.</p>
+                </div>
+              </li>
+              <li>
+                <span class="next-steps__n" aria-hidden="true">2</span>
+                <div>
+                  <h3>We follow up</h3>
+                  <p>We&rsquo;ll get in touch to talk through the details of your project.</p>
+                </div>
+              </li>
+              <li>
+                <span class="next-steps__n" aria-hidden="true">3</span>
+                <div>
+                  <h3>Receive your estimate</h3>
+                  <p>You&rsquo;ll get a free, detailed estimate for the work.</p>
+                </div>
+              </li>
+            </ol>
+            <div class="details__call">
+              <p class="details__label">Prefer to call?</p>
+              <a class="details__big" href="tel:8438812212">843-881-2212</a>
+              <p><a href="contact-us.html">More ways to reach us <span aria-hidden="true">&rarr;</span></a></p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" aria-label="Client testimonial">
+      <div class="wrap">
+        <div class="quote-solo reveal">
+          <p class="eyebrow">What clients say</p>
+          <blockquote class="quote quote--lead quote--on-light">
+            <p>Kevin Koozer not only embraced these principles, he far exceeds expectations for service to our customers. He provides quick and detailed estimates, highly skilled workers, and constant communication throughout the completion of the project.</p>
+            <cite><strong>John M. Smart</strong>Palmetto Craftsmen, Inc.</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- FOOTER:START -->

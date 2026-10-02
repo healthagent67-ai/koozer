@@ -81,10 +81,11 @@
         'Phone: ' + data.get('phone'),
         'Email: ' + data.get('email'),
         'Project type: ' + data.get('project'),
-        'Property location: ' + (data.get('location') || 'Not provided'),
-        '',
-        data.get('message')
+        'Property location: ' + (data.get('location') || 'Not provided')
       ];
+      if (data.get('property')) lines.push('Property type: ' + data.get('property'));
+      if (data.get('timeline')) lines.push('Timeline: ' + data.get('timeline'));
+      lines.push('', data.get('message'));
       var mail = 'mailto:' + form.getAttribute('data-email') +
         '?cc=' + encodeURIComponent(form.getAttribute('data-cc') || '') +
         '&subject=' + encodeURIComponent('Free estimate request: ' + data.get('project')) +
