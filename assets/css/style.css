@@ -325,7 +325,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- CTA band ---------- */
 
-.cta { background: var(--brass); color: var(--green-deep); padding-block: clamp(56px, 8vw, 96px); }
+.cta { background: var(--haint); color: var(--green-deep); padding-block: clamp(56px, 8vw, 96px); }
 .cta__inner { display: grid; grid-template-columns: 1fr auto; gap: 32px 64px; align-items: center; }
 .cta .eyebrow { color: var(--green); }
 .cta__title {
